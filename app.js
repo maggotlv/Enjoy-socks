@@ -34,13 +34,12 @@ app.use(
       maxAge: 1000 * 60 * 60 * 24 * 2,
       httpOnly: true,
     },
-  }),
+  })
 );
 
 app.use('/', indexRoutes);
 app.use('/login', authRoutes);
 app.use(isAuth);
-
 
 app.listen(PORT, (err) => {
   if (err) return console.log('Ошибка запуска сервера.', err.message);
