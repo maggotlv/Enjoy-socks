@@ -30,7 +30,7 @@ app.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
-      secure: false, // false - только для http, true - только для https
+      secure: false,
       maxAge: 1000 * 60 * 60 * 24 * 2,
       httpOnly: true,
     },
