@@ -14,6 +14,7 @@ const app = express();
 
 const indexRoutes = require('./src/routes/index.routes');
 const authRoutes = require('./src/routes/auth.routes');
+const favoritesRouter = require('./src/routes/favorites.routes');
 
 const { COOKIE_SECRET } = process.env;
 const { PORT } = process.env || 3000;
@@ -39,6 +40,7 @@ app.use(
 
 app.use('/', indexRoutes);
 app.use('/login', authRoutes);
+app.use('/favorites', isAuth, favoritesRouter);
 app.use(isAuth);
 
 app.listen(PORT, (err) => {
