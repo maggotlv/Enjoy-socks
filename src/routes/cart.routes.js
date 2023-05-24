@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const nodemailer = require('nodemailer');
 
 const Cart = require('../views/Cart');
 
@@ -20,9 +21,8 @@ router.get('/', async (req, res) => {
       }
     }
   }
-  const totalPrice = cartArr.length * 200;
   //   console.log('ОУ МАЙ!', cartArr);
-  res.render(Cart, { cartArr, totalPrice });
+  res.render(Cart, { cartArr });
 });
 
 router.post('/api/plus', async (req, res) => {
@@ -59,6 +59,31 @@ router.delete('/api/:id', async (req, res) => {
   } catch (error) {
     return res.json(error);
   }
+});
+
+router.get('/mail', (req, res) => {
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'enjoysocksStore@gmail.com',
+      pass: 'enjoysocks123!',
+    },
+  });
+
+  const mailOptions = {
+    from: 'enjoysocksStore@gmail.com',
+    to: 'enjoysocksStore@gmail.com',
+    subject: 'Sending Email using Node.js',
+    text: 'That was easy!',
+  };
+
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log(`Email sent: ${info.response}`);
+    }
+  });
 });
 
 module.exports = router;

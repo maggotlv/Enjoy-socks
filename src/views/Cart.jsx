@@ -2,7 +2,7 @@ const React = require('react');
 const Layout = require('./Layout');
 
 function Cart(props) {
-  console.log('Пропсики', props.cartArr);
+  // console.log('Пропсики', props.cartArr);
   return (
     <Layout {...props}>
       <div className="shopping-cart">
@@ -35,11 +35,7 @@ function Cart(props) {
                 </td>
                 <td>
                   <p className="countText" id={`count${el.id}`}>
-                    {el.count
-//                   if (el.count > 0) el.count
-// else if (el.count = 0) window.location.href = `/api/${el.id}`
-                  }
-
+                    {el.count}
                   </p>
                 </td>
                 <td>
@@ -62,7 +58,7 @@ function Cart(props) {
           </tbody>
         </table>
         <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-          <button type="button" className="btn btn-primary btn">Оформить заказ</button>
+          <button action="/cart/mail" method="get" type="button" className="btn btn-primary btn">Оформить заказ</button>
         </div>
       </div>
       <script defer src="/js/cart.js" />
