@@ -1,5 +1,5 @@
-const React = require("react");
-const NavBar = require("./NavBar");
+const React = require('react');
+const NavBar = require('./NavBar');
 
 module.exports = function Layout({ children, user }) {
   return (
@@ -25,4 +25,3 @@ module.exports = function Layout({ children, user }) {
     </html>
   );
 };
-

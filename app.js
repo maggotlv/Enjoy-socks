@@ -14,6 +14,7 @@ const app = express();
 
 const indexRoutes = require('./src/routes/index.routes');
 const authRoutes = require('./src/routes/auth.routes');
+const cartRoutes = require('./src/routes/cart.routes');
 const favoritesRouter = require('./src/routes/favorites.routes');
 const socksRoutes = require('./src/routes/socks.routes')
 
@@ -41,6 +42,8 @@ app.use(
 
 app.use('/', indexRoutes);
 app.use('/login', authRoutes);
+app.use(isAuth);
+app.use('/cart', cartRoutes);
 
 app.use('/favorites', isAuth, favoritesRouter);
 // app.use(isAuth);
