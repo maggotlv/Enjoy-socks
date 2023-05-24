@@ -23,3 +23,12 @@
   }
 }
 
+.delete {
+  border: none;
+  background-color: white;
+}
+
+.delete-btn {
+  width: 20px;
+  height: 20px;
+}

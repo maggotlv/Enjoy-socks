@@ -14,6 +14,7 @@ const app = express();
 
 const indexRoutes = require('./src/routes/index.routes');
 const authRoutes = require('./src/routes/auth.routes');
+const cartRoutes = require('./src/routes/cart.routes');
 
 const { COOKIE_SECRET } = process.env;
 const { PORT } = process.env || 3000;
@@ -34,12 +35,13 @@ app.use(
       maxAge: 1000 * 60 * 60 * 24 * 2,
       httpOnly: true,
     },
-  })
+  }),
 );
 
 app.use('/', indexRoutes);
 app.use('/login', authRoutes);
 app.use(isAuth);
+app.use('/cart', cartRoutes);
 
 app.listen(PORT, (err) => {
   if (err) return console.log('Ошибка запуска сервера.', err.message);
