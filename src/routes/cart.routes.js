@@ -20,11 +20,12 @@ router.get('/', async (req, res) => {
       }
     }
   }
+  const totalPrice = cartArr.length * 200;
   //   console.log('ОУ МАЙ!', cartArr);
-  res.render(Cart, { cartArr });
+  res.render(Cart, { cartArr, totalPrice });
 });
 
-router.post('/api/count/plus', async (req, res) => {
+router.post('/api/plus', async (req, res) => {
   const { id } = req.body;
   try {
     const count = await Carts.findOne({ where: { id }, raw: true });
@@ -37,7 +38,7 @@ router.post('/api/count/plus', async (req, res) => {
   }
 });
 
-router.post('/api/count/minus', async (req, res) => {
+router.post('/api/minus', async (req, res) => {
   const { id } = req.body;
   try {
     const count = await Carts.findOne({ where: { id }, raw: true });
@@ -47,6 +48,16 @@ router.post('/api/count/minus', async (req, res) => {
     return res.json(newCount);
   } catch (error) {
     console.log('ERROR ====>', error);
+  }
+});
+
+router.delete('/api/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    await Carts.destroy({ where: { id } });
+    return res.json({ status: 200, text: 'Запись удалена' });
+  } catch (error) {
+    return res.json(error);
   }
 });
 

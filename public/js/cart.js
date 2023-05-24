@@ -6,7 +6,7 @@ cart.addEventListener('click', async (e) => {
   if (e.target.className === 'delete-btn plus') {
     const { id } = e.target.dataset;
     try {
-      const response = await fetch('/cart/api/count/plus', {
+      const response = await fetch('/cart/api/plus', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ id }),
@@ -27,10 +27,11 @@ cart.addEventListener('click', async (e) => {
       console.log('error --------> ', error);
     }
   }
+
   if (e.target.className === 'delete-btn minus') {
     const { id } = e.target.dataset;
     try {
-      const response = await fetch('/cart/api/count/minus', {
+      const response = await fetch('/cart/api/minus', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ id }),
@@ -51,17 +52,19 @@ cart.addEventListener('click', async (e) => {
       console.log('error --------> ', error);
     }
   }
-//   if (e.target.className === 'delete-btn delete') {
-//     const { id } = e.target.dataset;
-//     fetch(`/api/post/${id}`, {
-//       method: 'DELETE',
-//       headers: { 'Content-Type': 'application/json' },
-//       body: JSON.stringify({ id }),
-//     }).then((result) => result.json())
-//       .then(() => {
-//         const parent = e.target.closest('.card');
-//         parent.remove();
-//       })
-//       .catch((err) => console.log(err));
-//   }
+  if (e.target.className === 'delete-btn delete') {
+    const { id } = e.target.dataset;
+    fetch(`/cart/api/${id}`, {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id }),
+    }).then((result) => result.json())
+      .then(() => {
+        const parent = e.target.closest('tr');
+        parent.remove();
+      })
+      .catch((err) => console.log(err));
+  }
 });
+
+// const countText = document.querySelector('.countText');
