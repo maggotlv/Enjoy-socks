@@ -1,6 +1,7 @@
 const router = require('express').Router();
 
 const FavoritesView = require('../views/Favorites');
+const One = require('../views/One');
 const Error = require('../views/Error');
 
 const { User, Socks, Favorites, Carts } = require('../../db/models');
@@ -13,18 +14,6 @@ router.get('/', async (req, res) => {
     });
     const favorites = favoritesData.map((sock) => sock.get({ plain: true }));
     res.render(FavoritesView, { title: 'Избранные носки', favorites });
-  } catch (error) {
-    res.render(Error, { msg: error.message });
-  }
-});
-
-router.delete('/:id', async (req, res) => {
-  try {
-    const favToDelete = await Favorites.findOne({
-      where: { id: req.params.id },
-    });
-    await favToDelete.destroy();
-    res.send({ status: 'ok' });
   } catch (error) {
     res.render(Error, { msg: error.message });
   }
@@ -43,6 +32,30 @@ router.get('/cart', async (req, res) => {
       await favToCart.save();
     }
     res.redirect('/cart');
+  } catch (error) {
+    res.render(Error, { msg: error.message });
+  }
+});
+
+router.get('/:id', async (req, res) => {
+  try {
+    const oneSockData = await Favorites.findOne({
+      where: { id: req.params.id },
+    });
+    const oneSock = await oneSockData.get({ plain: true });
+    res.render(One, { title: 'Твой носок', oneSock });
+  } catch (error) {
+    res.render(Error, { msg: error.message });
+  }
+});
+
+router.delete('/:id', async (req, res) => {
+  try {
+    const favToDelete = await Favorites.findOne({
+      where: { id: req.params.id },
+    });
+    await favToDelete.destroy();
+    res.send({ status: 'ok' });
   } catch (error) {
     res.render(Error, { msg: error.message });
   }

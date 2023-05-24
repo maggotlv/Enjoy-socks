@@ -19,7 +19,7 @@ module.exports = function Favorites({ title, user, favorites }) {
               </div>
               <div>
                 <button className="tocart" type="button">В корзину</button>
-                <button className="share" type="button">Поделиться</button>
+                <button className="share" type="button">Поделиться. Хотя нет, уже поделились</button>
               </div>
             </div>
           </>
