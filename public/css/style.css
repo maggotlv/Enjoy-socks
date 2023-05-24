@@ -23,3 +23,62 @@
   }
 }
 
+.sockBckg {
+  
+  height: 300px;
+  width: 300px;
+}
+
+.generator {
+  display: flex;
+  position: absolut;
+}
+
+
+
+.sockPattern, .sockLogo, .sock {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+}
+
+.sockLogo {
+  width: 70px;
+  height: 70px;
+  margin-left: 135px;
+  margin-top: 30px;
+}
+
+.generator-container {
+  display:flex;
+  flex-direction: row;
+}
+
+
+.carousel-control-next-icon, .carousel-control-prev-icon {
+  background-color: black;
+}
+
+.carousel-control-prev, .carousel-control-next {
+  height: 50px;
+  top: 35%;
+}
+
+.carousel.slide {
+  width: 250px;
+}
+
+.color-div {
+  width: 207px;
+  height: 207px;
+}
+
+
+
+
+
+
+
+
+
+
