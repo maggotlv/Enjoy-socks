@@ -72,6 +72,8 @@ module.exports = function Generator() {
 
 
       </div>
+      <script defer src="/js/generator.js" />
+
     </Layout>
   );
 };
