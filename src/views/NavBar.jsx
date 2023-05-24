@@ -3,6 +3,7 @@ const React = require("react");
 module.exports = function NavBar({ user }) {
   return (
     <nav className="navBar">
+      <a href="/socks">Socks</a>
       {user ? (
         <>
           <span>hello</span>

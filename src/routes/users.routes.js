@@ -27,7 +27,7 @@ router.post('/', async (req, res) => {
       if (!passwordIsValid) {
         return res.sendStatus(401);
       }
-
+      console.log(user)
       req.session.user = user;
       res.sendStatus(200);
     } else {
@@ -52,6 +52,7 @@ router.post('/registration', async (req, res) => {
       },
     });
     if (create) {
+      req.session.user = newUser;
       res.sendStatus(200);
     } else {
       res.sendStatus(401);
@@ -67,7 +68,7 @@ router.get('/logout', (req, res) => {
       console.log(e);
       return;
     }
-    res.clearCookie('UserAuth');
+    res.clearCookie('JaysCookie');
     res.redirect('/');
   });
 });
