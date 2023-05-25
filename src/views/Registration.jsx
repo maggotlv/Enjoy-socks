@@ -1,35 +1,30 @@
-const React = require("react");
-const Layout = require("./Layout");
+const React = require('react');
+const Layout = require('./Layout');
 
 module.exports = function Registration() {
   return (
     <Layout>
-      <form name="regForm">
-        <h3>Registration</h3>
-        <input
-          required
-          className=""
-          type="text"
-          name="name"
-          placeholder="Name"
-        />
-        <input
-          required
-          className=""
-          type="email"
-          name="email"
-          placeholder="E-mail"
-        />
-        <input
-          required
-          className=""
-          type="password"
-          name="password"
-          placeholder="Password"
-        />
-        <button type="submit">Submit</button>
-      </form>
+      <div id="registration" className="container-sm">
+
+        <form name="regForm">
+          <h3>Регистрация</h3>
+          <div className="mb-3">
+            <label htmlFor="exampleInputEmail1" className="form-label">Имя пользователя</label>
+            <input name="name" type="text" className="form-control" />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="exampleInputPassword1" className="form-label">E-mail</label>
+            <input name="email" type="email" className="form-control" />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="exampleInputPassword1" className="form-label">Пароль</label>
+            <input name="password" type="tpassword" className="form-control" />
+          </div>
+          <button type="submit" className="btn btn-warning">Отправить</button>
+
+        </form>
+      </div>
+
     </Layout>
   );
 };
-
