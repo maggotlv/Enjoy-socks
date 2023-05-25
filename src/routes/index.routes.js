@@ -3,9 +3,20 @@ const router = require('express').Router();
 const Home = require('../views/Home');
 const mailClient = require('../lib/sendEmailer');
 
-router.get('/', (req, res) => {
-  const title = 'Home';
-  res.render(Home, { title });
+const { Socks } = require('../../db/models');
+
+router.get('/', async (req, res) => {
+  const title = 'Магазин носков "Enjoy socks"';
+  try {
+    const socksData = await Socks.findAll({
+      limit: 20,
+      order: [['createdAt', 'DESC']],
+      raw: true,
+    });
+    res.render(Home, { title, socksData });
+  } catch (error) {
+    res.render(Error, { msg: error.message });
+  }
 });
 
 router.get('/mail', (req, res) => {
