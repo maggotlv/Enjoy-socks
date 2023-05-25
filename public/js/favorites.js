@@ -4,6 +4,7 @@ favoritesGroup.addEventListener('click', async (e) => {
   if (e.target.classList.contains('close-button')) {
     e.preventDefault();
     const sock = e.target.parentNode.parentNode;
+    console.log(sock);
     try {
       const result = await fetch(`/favorites/${sock.id}`, {
         method: 'DELETE',
