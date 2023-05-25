@@ -35,7 +35,6 @@
 
 .generator {
   display: flex;
-  position: absolut;
 }
 
 
@@ -55,7 +54,7 @@
 
 .generator-container {
   display:flex;
-  flex-direction: row;
+
 }
 
 
@@ -73,21 +72,35 @@
 }
 
 .color-div {
-  width: 207px;
-  height: 207px;
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  width: 250px;
+  height: 100px;
 }
 
 
-
-
-
-
-
-
-
+.sockDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
 
 .delete-btn {
   width: 20px;
   height: 20px;
+}
+
+.carousel-inner {
+  height: 100px;
+}
+
+.footer {
+  display:flex;
+    bottom: 0;;
+  text-align: center;
+      --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-tertiary-bg-rgb),var(--bs-bg-opacity))!important;
 }

@@ -1,30 +1,29 @@
-const React = require("react");
+const React = require('react');
 
 module.exports = function NavBar({ user }) {
   return (
-    <nav className="navBar">
-      <a href="/socks">Socks</a>
-      {user ? (
+
+    <nav className="navbar bg-body-tertiary">
+      <div className="container-fluid">
+        <a className="navbar-brand" href="#">
+          <img src="/img/logo.png" alt="Logo" width="50" height="50" className="d-inline-block align-text-top" />
+        </a>
+        <a href="/">Home</a>
+        <a href="/socks">Socks</a>
+        <a href="/login/logout">Logout</a>
+        <a href="/login">Login</a>
+        <a href="/login/registration">Registration</a>
+        <a href="/cart">Cart</a>
+        <a href="/favorites">Favorites</a>
+
+      </div>
+
+      {/* {user ? (
         <>
-          <span>hello</span>
-          <a href="/">
-            home
-          </a>
-          <a href="/login/logout">
-            logout
-          </a>
         </>
       ) : (
         <>
-          <a href="/login">
-            login
-          </a>
-          <a href="/login/registration">
-            registration
-          </a>
-        </>
-      )}
+        </> */}
     </nav>
   );
 };
-

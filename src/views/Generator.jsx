@@ -4,15 +4,23 @@ const Layout = require('./Layout');
 module.exports = function Generator() {
   return (
     <Layout>
-      <h1>Generator</h1>
+      <h1>Генератор</h1>
       <div className="generator-container">
+        <div className="sockDiv">
         <div className="generator">
-          <div className="sockBckg" style={{background: '#FFFFFF'}}/>
+          <div className="sockBckg" style={{background: 'rgb(255, 255, 255)'}}/>
           <img className="sockPattern" src="/img/patterns/gorokhoviy.png" />
-          <img className="sockLogo" src="/img/images/кактус.png" />
+          <img className="sockLogo" src="/img/images/cactus.png" />
           <img className="sock" src="/img/sock.png" />
         </div>
+        <div className="sockButtons">
+        <button id="addFav">Add to favourites</button>
+        <button id="addCart">Add to cart</button>
+        </div>
+        </div>
 
+        <div className="options">
+          <h3>Узор:</h3>
         <div id="carouselExample" className="carousel slide">
           <div className="carousel-inner">
             <div className="carousel-item active">
@@ -38,25 +46,26 @@ module.exports = function Generator() {
           </button>
         </div>
 
+        <h3>Цвет:</h3>
         <div id="carouselExample-two" className="carousel slide">
           <div className="carousel-inner">
             <div className="carousel-item color active">
-              <div  data-color="#FFFFFF" className="color-div" style={{background: '#FFFFFF'}}>Белый</div>
+              <div  data-color="rgb(255, 255, 255)" className="color-div" style={{background: 'rgb(255, 255, 255)'}}>Белый</div>
             </div>
             <div className="carousel-item color">
-            <div data-color="#FFD407" className="color-div" style={{background: '#FFD407'}}>Желтый</div>
+            <div data-color="rgb(255, 212, 7)" className="color-div" style={{background: 'rgb(255, 212, 7)'}}>Желтый</div>
             </div>
-            <div className="carousel-item">
-            <div data-color="#C707FF" className="color-div" style={{background: '#C707FF'}}>Фиолетовый</div>
+            <div className="carousel-item color">
+            <div data-color="rgb(199, 7, 255)" className="color-div" style={{background: 'rgb(199, 7, 255)'}}>Фиолетовый</div>
             </div>
-            <div className="carousel-item">
-            <div data-color="#FF8B86" className="color-div" style={{background: '#FF8B86'}}>Розовый</div>
+            <div className="carousel-item color">
+            <div data-color="rgb(255, 139, 134)" className="color-div" style={{background: 'rgb(255, 139, 134)'}}>Розовый</div>
             </div>
-            <div className="carousel-item">
-            <div data-color="#DAFF86" className="color-div" style={{background: '#DAFF86'}}>Салатовый</div>
+            <div className="carousel-item color">
+            <div data-color="rgb(218, 255, 134)" className="color-div" style={{background: 'rgb(218, 255, 134)'}}>Салатовый</div>
             </div>
-            <div className="carousel-item">
-            <div data-color="#86F4FF" className="color-div" style={{background: '#86F4FF'}}>Голубой</div>
+            <div className="carousel-item color">
+            <div data-color="rgb(134, 244, 255)" className="color-div" style={{background: 'rgb(134, 244, 255)'}}>Голубой</div>
             </div>
           </div>
           <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample-two" data-bs-slide="prev">
@@ -68,8 +77,33 @@ module.exports = function Generator() {
             <span className="visually-hidden">Next</span>
           </button>
         </div>
-
-
+        
+        <h3>Лого:</h3>
+        <div id="carouselExample-three" className="carousel slide">
+          <div className="carousel-inner">
+            <div className="carousel-item logo active">
+              <img src="/img/images/cactus.png" className="d-block w-100 imgLogo" alt="..." />
+            </div>
+            <div className="carousel-item logo">
+              <img src="/img/images/duck.png" className="d-block w-100" alt="..." />
+            </div>
+            <div className="carousel-item logo">
+              <img src="/img/images/llama.png" className="d-block w-100" alt="..." />
+            </div>
+            <div className="carousel-item logo">
+              <img src="/img/images/yoda.png" className="d-block w-100" alt="..." />
+            </div>
+          </div>
+          <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample-three" data-bs-slide="prev">
+            <span className="carousel-control-prev-icon" aria-hidden="true" />
+            <span className="visually-hidden">Previous</span>
+          </button>
+          <button className="carousel-control-next" type="button" data-bs-target="#carouselExample-three" data-bs-slide="next">
+            <span className="carousel-control-next-icon" aria-hidden="true" />
+            <span className="visually-hidden">Next</span>
+          </button>
+        </div>
+        </div>
 
       </div>
       <script defer src="/js/generator.js" />
