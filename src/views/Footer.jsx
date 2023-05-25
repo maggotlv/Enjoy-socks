@@ -2,7 +2,7 @@ const React = require('react');
 
 module.exports = function Footer() {
   return (
-    <nav className="navbar bg-body-tertiary">
+    <nav className="navbar bg-body-tertiary mt-3">
       <div className="container-fluid footer justify-content-around">
         <div>
           <span className="font-weight-bold">Enjoy socks</span>

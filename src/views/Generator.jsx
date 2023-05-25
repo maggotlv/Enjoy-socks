@@ -4,7 +4,8 @@ const Layout = require('./Layout');
 module.exports = function Generator({ user }) {
   return (
     <Layout user={user}>
-      <h1>Генератор</h1>
+      <h3>Генератор</h3>
+      <br />
       <div className="generator-container">
         <div className="sockDiv">
           <div className="generator">

@@ -31,6 +31,11 @@ body {
   }
 }
 
+h3,
+h5 {
+  text-align: center;
+}
+
 .delete {
   border: none;
   background-color: white;
