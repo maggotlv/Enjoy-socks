@@ -6,35 +6,27 @@ const {
 
 const Generator = require('../views/Generator');
 
-function trans(str) {
-  const ru = {
-    'cactus.png': 'кактус',
-    'duck.png': 'уточка',
-    'llama.png': 'лама',
-    'yoda.png': 'Йода',
-    'gorokhoviy.png': 'гороховый',
-    'nauchniy.png': 'научный',
-    'sovremenniy.png': 'современный',
-    'zvezdniy.png': 'звёздный',
-  }; const
-    n_str = [];
-
-  str = str.replace(/[ъь]+/g, '').replace(/й/g, 'i');
-
-  for (let i = 0; i < str.length; ++i) {
-    n_str.push(
-      ru[str[i]]
-         || ru[str[i].toLowerCase()] == undefined && str[i]
-         || ru[str[i].toLowerCase()].toUpperCase(),
-    );
-  }
-
-  return n_str.join('');
-}
+const trans = {
+  'rgb(255, 255, 255)': 'Белый',
+  'rgb(255, 212, 7)': 'Жёлтый',
+  'rgb(199, 7, 255)': 'Фиолетовый',
+  'rgb(255, 139, 134)': 'Розовый',
+  'rgb(218, 255, 134)': 'Салатовый',
+  'rgb(134, 244, 255)': 'Голубой',
+  'cactus.png': 'кактус',
+  'duck.png': 'уточка',
+  'llama.png': 'лама',
+  'yoda.png': 'Йода',
+  'gorokhoviy.png': 'гороховый',
+  'nauchniy.png': 'научный',
+  'sovremenniy.png': 'современный',
+  'zvezdniy.png': 'звёздный'
+};
 
 router.get('/', (req, res) => {
   res.render(Generator, {});
 });
+
 
 router.post('/addFav', async (req, res) => {
   try {
@@ -44,9 +36,9 @@ router.post('/addFav', async (req, res) => {
       pattern: sockData.pattern,
       image: sockData.image,
       author: req.session.user.id,
-      sockname: trans(sockData.pattern)
+      sockname: `${trans[sockData.colour]} ${trans[sockData.pattern]} ${trans[sockData.image]}`
     });
-    res.json('sock added');
+    res.json('Sock added');
   } catch (error) {
     console.log(error);
   }
