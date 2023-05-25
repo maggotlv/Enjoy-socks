@@ -3,12 +3,12 @@ const React = require('react');
 module.exports = function NavBar(props) {
   return (
     <header>
-      <nav className="navbar navbar-expand-sm bg-body-tertiary">
+      <nav className="navbar navbar-expand-sm bg-body-tertiary mb-3">
         <div className="container-fluid">
           <img src="/img/logo.png" alt="" width="50" height="50" />
-          {/* <span className="navbar-brand h1">ENJOY SOCKS</span> */}
 
-          <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div className="collapse navbar-collapse d-flex justify-content-between" id="navbarNavAltMarkup">
+            <span className="navbar-brand h1 m-3">ENJOY SOCKS</span>
             <div className="navbar-nav">
               <a className="nav-link" href="/">Main</a>
 

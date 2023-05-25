@@ -8,7 +8,8 @@ function Cart(props) {
   return (
     <Layout {...props}>
       <div className="shopping-cart">
-        <h2> Корзина </h2>
+        <h3> Корзина </h3>
+        <br />
         {(props.cartData.length === 0) ? (<h5>Корзина пуста</h5>) : (
           <>
             <table className="table">

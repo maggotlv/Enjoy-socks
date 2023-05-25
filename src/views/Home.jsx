@@ -5,8 +5,8 @@ function Home({ title, user, socksData }) {
   return (
     <Layout user={user}>
       <div className="d-flex flex-column">
-        <h1>{title}</h1>
-        <h3>Самое время быть уникальным! Смоделируй свою любимую пару носков!</h3>
+        <h3>{title}</h3>
+        <h5>Самое время быть уникальным! Смоделируй свою любимую пару носков!</h5>
         <br />
         <div className="home-group row">
           {socksData.map((sock) => (
@@ -22,7 +22,9 @@ function Home({ title, user, socksData }) {
             </div>
           ))}
         </div>
-        <a href="/socks"><button className="btn btn-lg btn-primary">Сгенерировать носок</button></a>
+        <div className="d-flex justify-content-center">
+          <a href="/socks"><button className="btn btn-lg btn-success mt-3 px-5">Сгенерировать носок</button></a>
+        </div>
       </div>
     </Layout>
   );

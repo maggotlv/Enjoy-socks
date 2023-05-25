@@ -5,7 +5,7 @@ module.exports = function Favorites({ title, user, favorites }) {
   return (
     <Layout user={user}>
       <div className="d-flex flex-column">
-        <h2>{title}</h2>
+        <h3>{title}</h3>
         <br />
         <div className="favorites-group d-flex flex-wrap">
           {favorites.map((sock) => (
