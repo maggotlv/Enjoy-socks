@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const nodemailer = require('nodemailer');
+const mailClient = require('../lib/sendEmailer');
 
 const Cart = require('../views/Cart');
 
@@ -8,21 +9,13 @@ const { Socks } = require('../../db/models');
 
 router.get('/', async (req, res) => {
   const userId = req.session.user.id;
-  const cartData = await Carts.findAll({ where: { user: userId }, raw: true });
-  const socksData = await Socks.findAll({ where: { author: userId }, raw: true });
-  const cartArr = [];
-
-  for (let i = 0; i < cartData.length; i++) {
-    for (let j = 0; j < socksData.length; j++) {
-      if (cartData[i].sock === socksData[j].id) {
-        cartArr.push({
-          id: cartData[i].id, sockName: socksData[j].sockname, count: cartData[i].count, price: 200,
-        });
-      }
-    }
-  }
-  //   console.log('ОУ МАЙ!', cartArr);
-  res.render(Cart, { cartArr });
+  const cartData = await Carts.findAll({
+    where: { user: userId },
+    order: [['id', 'ASC']],
+    include: Socks,
+    raw: true,
+  });
+  res.render(Cart, { cartData });
 });
 
 router.post('/api/plus', async (req, res) => {
@@ -30,7 +23,6 @@ router.post('/api/plus', async (req, res) => {
   try {
     const count = await Carts.findOne({ where: { id }, raw: true });
     const newCount = count.count + 1;
-    // console.log(newCount);
     await Carts.update({ count: newCount }, { where: { id } });
     return res.json(newCount);
   } catch (error) {
@@ -43,7 +35,6 @@ router.post('/api/minus', async (req, res) => {
   try {
     const count = await Carts.findOne({ where: { id }, raw: true });
     const newCount = count.count - 1;
-    // console.log(newCount);
     await Carts.update({ count: newCount }, { where: { id } });
     return res.json(newCount);
   } catch (error) {
@@ -61,29 +52,10 @@ router.delete('/api/:id', async (req, res) => {
   }
 });
 
-router.get('/mail', (req, res) => {
-  const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: 'enjoysocksStore@gmail.com',
-      pass: 'enjoysocks123!',
-    },
-  });
-
-  const mailOptions = {
-    from: 'enjoysocksStore@gmail.com',
-    to: 'enjoysocksStore@gmail.com',
-    subject: 'Sending Email using Node.js',
-    text: 'That was easy!',
-  };
-
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.log(error);
-    } else {
-      console.log(`Email sent: ${info.response}`);
-    }
-  });
+router.put('/mail', (req, res) => {
+  console.log(req.body.orderNum, req.body.sum);
+  mailClient(req.body.orderNum, req.body.sum);
+  return res.json();
 });
 
 module.exports = router;

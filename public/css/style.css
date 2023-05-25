@@ -40,3 +40,8 @@
 .minus-btn {
   float: right;
 }
+
+.orderDone {
+  text-align: right;
+  color: rgb(195, 5, 5);
+}
