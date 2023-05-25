@@ -53,9 +53,12 @@ router.delete('/api/:id', async (req, res) => {
 });
 
 router.put('/mail', (req, res) => {
-  console.log(req.body.orderNum, req.body.sum);
-  mailClient(req.body.orderNum, req.body.sum);
-  return res.json();
+  // console.log(req.body.orderNum, req.body.sum, req.session.user.email);
+  const title = `Заказ №${req.body.orderNum} сформирован`;
+  mailClient(title, req.body.cart, 'enjoy.socks@mail.ru');
+  mailClient(title, req.body.cart, req.session.user.email);
+
+  return res.end;
 });
 
 module.exports = router;
