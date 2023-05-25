@@ -104,3 +104,16 @@
       --bs-bg-opacity: 1;
     background-color: rgba(var(--bs-tertiary-bg-rgb),var(--bs-bg-opacity))!important;
 }
+
+.countText {
+  text-align: center;
+}
+
+.minus-btn {
+  float: right;
+}
+
+.orderDone {
+  text-align: right;
+  color: rgb(195, 5, 5);
+}

@@ -1,6 +1,24 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
+    await queryInterface.bulkInsert(
+      'Users',
+      [
+        {
+          name: 'r',
+          email: 'r@r.ru',
+          password:
+            '$2b$10$q5P7Qag6i1OqRf1lfamrOOtiRnDW7kc1AVX7KUmMnABst9kShmJu6',
+        },
+        {
+          name: 'v',
+          email: 'v@v.ru',
+          password:
+            '$2b$10$q5P7Qag6i1OqRf1lfamrOOtiRnDW7kc1AVX7KUmMnABst9kShmJu6',
+        },
+      ],
+      {},
+    );
     await queryInterface.bulkInsert('Socks', [{
       colour: 'Белый',
       pattern: 'Гороховый',
