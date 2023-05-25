@@ -10,7 +10,8 @@ favoritesGroup.addEventListener('click', async (e) => {
       });
       console.log(result);
       if (result.ok === true) {
-        sock.remove();
+        const card = sock.closest('.sock-card-f');
+        card.remove();
       }
     } catch (error) {
       console.log(error);

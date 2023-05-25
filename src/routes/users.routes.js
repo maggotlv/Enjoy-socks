@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const bcrypt = require('bcrypt');
-const { Users } = require('../../db/models');
+const { Users, Carts } = require('../../db/models');
 
 const Login = require('../views/Login');
 const Registration = require('../views/Registration');
@@ -20,15 +20,18 @@ router.post('/', async (req, res) => {
 
   try {
     const user = await Users.findOne({ where: { email } });
-
+    const cartsData = await Carts.findOne({
+      where: { user: user.id },
+      raw: true,
+    });
     if (user) {
       const passwordIsValid = await bcrypt.compare(password, user.password);
 
       if (!passwordIsValid) {
         return res.sendStatus(401);
       }
-      console.log(user)
-      req.session.user = user;
+      req.session.user = await user.get({ plain: true });
+      req.session.user.cart = !!cartsData;
       res.sendStatus(200);
     } else {
       res.sendStatus(401);

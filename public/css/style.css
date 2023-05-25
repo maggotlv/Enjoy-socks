@@ -87,14 +87,20 @@ h5 {
   height: 100px;
 }
 
-.favorites-group {
-}
 .sock-card-f {
   max-width: 354px;
   min-height: 563px;
 }
 .sock-card-h {
   scale: 70%;
+}
+.sock-group-o {
+  width: 460px;
+  height: 460px;
+}
+
+.sock-card-o {
+  scale: 150%;
 }
 
 .sharebuttons {
