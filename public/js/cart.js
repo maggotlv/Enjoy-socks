@@ -1,5 +1,6 @@
 const cart = document.querySelector('.shopping-cart');
 const totalPrice = document.querySelector('#totalPrice');
+const table = document.querySelector('.table');
 
 const deleteFunc = (id) => {
   fetch(`/cart/api/${id}`, {
@@ -70,12 +71,12 @@ cart.addEventListener('click', async (e) => {
 
   if (e.target.className === 'btn btn-primary btn send') {
     const sum = totalPrice.innerText;
-    const orderNum = 1;
+    const orderNum = `${(new Date()).toLocaleString('RU', 'ru').split(',')[0]}-${Math.round(Math.random() * 1000)}`;
 
     fetch('/cart/mail', {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ orderNum, sum }),
+      body: JSON.stringify({ orderNum, sum, cart: table.innerHTML }),
     }).catch((err) => console.log(err));
 
     const done = document.createElement('div');
