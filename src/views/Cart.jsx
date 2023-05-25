@@ -29,13 +29,14 @@ function Cart(props) {
                     <th scope="row">
                       <button className="delete" type="button" name="button">
                         <img className="delete-btn delete" src="/img/vector-cancel-icon.jpg" alt="" data-id={el.id} />
+                        <img className="close-button" style={{ stroke: 'red' }} src="/img/closesm.svg" alt="" width="40" height="40" />
                       </button>
                     </th>
                     <td>{el['Sock.sockname']}</td>
                     <td><p className="price" id={`price${el.id}`}>{price * el.count}</p></td>
                     <td>
                       <button className="delete minus-btn" type="button" name="button">
-                        <img className="delete-btn minus" src="/img/minus-svgrepo-com.svg" alt="" data-id={el.id} />
+                        <img className="delete-btn minus" src="/img/minus.svg" alt="" data-id={el.id} />
                       </button>
                     </td>
                     <td>
@@ -45,7 +46,7 @@ function Cart(props) {
                     </td>
                     <td>
                       <button className="delete plus-btn" type="button" name="button">
-                        <img className="delete-btn plus" src="/img/plus-svgrepo-com.svg" alt="" data-id={el.id} />
+                        <img className="delete-btn plus" src="/img/plus.svg" alt="" data-id={el.id} />
                       </button>
                     </td>
                   </tr>
