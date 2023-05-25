@@ -1,7 +1,7 @@
 const nodemailer = require('nodemailer');
 require('dotenv').config();
 
-async function mailClient(addressTo, subject, body) {
+async function mailClient(subject, sum) {
   const smtpTransport = nodemailer.createTransport({
     // service: 'Gmail', //OR use config below
     host: 'smtp.mail.ru',
@@ -20,9 +20,9 @@ async function mailClient(addressTo, subject, body) {
   await smtpTransport.sendMail(
     {
       from: process.env.MAIL_USER,
-      to: addressTo,
+      to: 'enjoy.socks@mail.ru',
       subject,
-      text: body,
+      text: sum,
       // html: `<b>${text}</b>`,
     },
     (error, response) => {
@@ -31,7 +31,7 @@ async function mailClient(addressTo, subject, body) {
       } else {
         console.log('Сообщение отправлено на почту');
       }
-    }
+    },
   );
 }
 

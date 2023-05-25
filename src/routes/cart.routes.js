@@ -55,7 +55,7 @@ router.delete('/api/:id', async (req, res) => {
 router.put('/mail', (req, res) => {
   console.log(req.body.orderNum, req.body.sum);
   mailClient(req.body.orderNum, req.body.sum);
-  return res.json();
+  return res.end;
 });
 
 module.exports = router;

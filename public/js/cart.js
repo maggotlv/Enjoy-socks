@@ -1,6 +1,5 @@
 const cart = document.querySelector('.shopping-cart');
 const totalPrice = document.querySelector('#totalPrice');
-let orderNum = 1;
 
 const deleteFunc = (id) => {
   fetch(`/cart/api/${id}`, {
@@ -62,7 +61,7 @@ cart.addEventListener('click', async (e) => {
     }
   }
 
-  if (e.target.className === 'delete-btn delete') {
+  if (e.target.id === 'deleteBtn') {
     const { id } = e.target.dataset;
     deleteFunc(id);
     const parent = e.target.closest('tr');
@@ -71,13 +70,13 @@ cart.addEventListener('click', async (e) => {
 
   if (e.target.className === 'btn btn-primary btn send') {
     const sum = totalPrice.innerText;
-    orderNum += 1;
+    const orderNum = 1;
 
     fetch('/cart/mail', {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ orderNum, sum }),
-    }).then((result) => result.json()).catch((err) => console.log(err));
+    }).catch((err) => console.log(err));
 
     const done = document.createElement('div');
     done.innerText = 'Ваш заказ оформлен';

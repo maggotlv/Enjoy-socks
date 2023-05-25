@@ -28,8 +28,7 @@ function Cart(props) {
                   <tr key={el.id}>
                     <th scope="row">
                       <button className="delete" type="button" name="button">
-                        <img className="delete-btn delete" src="/img/vector-cancel-icon.jpg" alt="" data-id={el.id} />
-                        <img className="close-button" style={{ stroke: 'red' }} src="/img/closesm.svg" alt="" width="40" height="40" />
+                        <img id="deleteBtn" className="close-button" style={{ stroke: 'red' }} src="/img/closesm.svg" alt="" data-id={el.id} width="30" height="30" />
                       </button>
                     </th>
                     <td>{el['Sock.sockname']}</td>

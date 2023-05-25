@@ -27,6 +27,7 @@
   border: none;
   background-color: white;
 }
+
 .sockBckg {
   height: 300px;
   width: 300px;
@@ -93,8 +94,10 @@
   background-repeat: no-repeat;
   opacity: 0.8;
 }
+
 .sharebutton:hover,
-.close-button:hover {
+.close-button:hover,
+.delete-btn {
   opacity: 1;
   scale: 1.2;
   transition: 0.3s;
@@ -103,18 +106,23 @@
 .whatsapp {
   background-image: url('../img/sharebuttons/whatsapSign.png');
 }
+
 .viber {
   background-image: url('../img/sharebuttons/viberSign.png');
 }
+
 .telegram {
   background-image: url('../img/sharebuttons/telegramSign.png');
 }
+
 .facebook {
   background-image: url('../img/sharebuttons/facebookSign.png');
 }
+
 .vk {
   background-image: url('../img/sharebuttons/vkSign.png');
 }
+
 .sockDiv {
   display: flex;
   flex-direction: column;
@@ -136,10 +144,8 @@
   bottom: 0;
   text-align: center;
   --bs-bg-opacity: 1;
-  background-color: rgba(
-    var(--bs-tertiary-bg-rgb),
-    var(--bs-bg-opacity)
-  ) !important;
+  background-color: rgba(var(--bs-tertiary-bg-rgb),
+      var(--bs-bg-opacity)) !important;
 }
 
 .countText {
