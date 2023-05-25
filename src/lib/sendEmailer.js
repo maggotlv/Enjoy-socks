@@ -23,7 +23,7 @@ async function mailClient(subject, html, mailTo) {
       to: mailTo,
       subject,
       // text: sum,
-      html,
+      html: `<table>${html}</table>`,
     },
     (error, response) => {
       if (error) {

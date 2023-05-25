@@ -63,7 +63,7 @@ function Cart(props) {
               </tbody>
             </table>
             <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-              <button action="/cart/mail" method="get" type="button" className="btn btn-primary btn send">Оформить заказ</button>
+              <button action="/cart/mail" method="get" type="button" className="btn btn-warning btn send">Оформить заказ</button>
             </div>
 
           </>
