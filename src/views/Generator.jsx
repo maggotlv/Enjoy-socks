@@ -1,9 +1,9 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-module.exports = function Generator() {
+module.exports = function Generator({ user }) {
   return (
-    <Layout>
+    <Layout user={user}>
       <h1>Генератор</h1>
       <div className="generator-container">
         <div className="sockDiv">
@@ -14,8 +14,8 @@ module.exports = function Generator() {
             <img className="sock" src="/img/sock.png" />
           </div>
           <div className="sockButtons">
-            <button id="addFav" className="btn btn-success btn send">Add to favurites</button>
-            <button id="addCart" className="btn btn-primary btn send">Add to cart</button>
+            <button id="addFav" className="btn btn-success btn send p-2 m-3">В избранное</button>
+            <button id="addCart" className="btn btn-warning btn send p-2 m-3">В корзину</button>
           </div>
         </div>
 

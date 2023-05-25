@@ -7,11 +7,11 @@ module.exports = function Favorites({ title, user, favorites }) {
       <div className="d-flex flex-column">
         <h2>{title}</h2>
         <br />
-        <div className="favorites-group d-flex">
+        <div className="favorites-group d-flex flex-wrap">
           {favorites.map((sock) => (
-            <div className="sock-card-f" key={sock.id} id={sock.id}>
+            <div className="sock-card-f d-flex flex-column justify-content-between mt-3" key={sock.id} id={sock.id}>
               <h5>{`${sock.id} ${sock.sockname}`}</h5>
-              <div className="border border-3 p-3 m-2 shadow d-flex flex-column" key={sock.id} id={sock.id}>
+              <div className="border border-1 p-3 m-2 shadow d-flex flex-column" key={sock.id} id={sock.id}>
                 <a style={{ alignSelf: 'end' }} href="/favorites/delete/${sock.id}"><img className="close-button" style={{ stroke: 'red' }} src="/img/closesm.svg" alt="" width="50" height="50" /></a>
                 <div className="generator">
                   <div className="sockBckg" style={{ backgroundColor: `${sock.colour}` }} />
@@ -21,7 +21,7 @@ module.exports = function Favorites({ title, user, favorites }) {
                 </div>
                 <br />
                 <div className="d-flex flex-column align-items center">
-                  <button className="btn btn-primary tocart" type="button">В корзину</button>
+                  <button className="btn btn-success tocart" type="button">В корзину</button>
                   <br />
                   <div className="sharebuttons">
                     <a className="sharebutton whatsapp" rel="nofollow noreferrer" href={`https://api.whatsapp.com/send?text=%D0%9C%D0%BE%D0%B9%20%D0%BD%D0%BE%D1%81%D0%BE%D0%BA%20%D0%BD%D0%B0%20%D1%81%D0%B0%D0%B9%D1%82%D0%B5%20Enjoy%20socks%20http%3A%2F%2Flocalhost%3A3000%2Ffavorites%2Fone%2F${sock.id}%20`} target="_blank" />

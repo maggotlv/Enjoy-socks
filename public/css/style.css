@@ -85,6 +85,8 @@
 .favorites-group {
 }
 .sock-card-f {
+  max-width: 354px;
+  min-height: 563px;
 }
 .sock-card-h {
   scale: 70%;
@@ -132,7 +134,8 @@
 .vk {
   background-image: url('../img/sharebuttons/vkSign.png');
 }
-.sockDiv, .options {
+.sockDiv,
+.options {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -158,8 +161,10 @@
   bottom: 0;
   text-align: center;
   --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-tertiary-bg-rgb),
-      var(--bs-bg-opacity)) !important;
+  background-color: rgba(
+    var(--bs-tertiary-bg-rgb),
+    var(--bs-bg-opacity)
+  ) !important;
 }
 
 .countText {
