@@ -9,6 +9,7 @@ function Home({ title, user, socksData }) {
         <h3>Самое время быть уникальным! Смоделируй свою любимую пару носков!</h3>
         <br />
         <div className="home-group row">
+          <a href="/socks"><button className="btn btn-lg btn-primary">Сгенерировать носок</button></a>
           {socksData.map((sock) => (
             <div className="col-sm" key={sock.id} id={sock.id}>
               <div className="shadow d-flex flex-column" key={sock.id} id={sock.id}>
@@ -22,7 +23,6 @@ function Home({ title, user, socksData }) {
             </div>
           ))}
         </div>
-        <a href="/socks"><button className="btn btn-lg btn-primary">Сгенерировать носок</button></a>
       </div>
     </Layout>
   );
