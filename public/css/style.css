@@ -54,11 +54,12 @@
 .generator-container {
   display: flex;
   flex-direction: row;
+  height: 600px;
 }
 
 .carousel-control-next-icon,
 .carousel-control-prev-icon {
-  background-color: black;
+  background-color: #fa455c;
 }
 
 .carousel-control-prev,
@@ -69,6 +70,7 @@
 
 .carousel.slide {
   width: 250px;
+  margin-bottom: 35px;
 }
 
 .color-div {
@@ -115,13 +117,18 @@
 .vk {
   background-image: url('../img/sharebuttons/vkSign.png');
 }
-.sockDiv {
+.sockDiv, .options {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  box-shadow: 0px 0px 14px #b3b2b1;
+  width: 500px;
 }
 
+.options {
+  width: 600px;
+}
 .delete-btn {
   width: 20px;
   height: 20px;

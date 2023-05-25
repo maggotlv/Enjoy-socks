@@ -1,7 +1,6 @@
 const addFav = document.querySelector('#addFav');
 const addCart = document.querySelector('#addCart');
 
-
 addFav?.addEventListener('click', async () => {
   const colour = sockBckg.style.background;
   const pattern = sockPattern.src.slice(35, 55);

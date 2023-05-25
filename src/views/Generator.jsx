@@ -14,8 +14,8 @@ module.exports = function Generator() {
             <img className="sock" src="/img/sock.png" />
           </div>
           <div className="sockButtons">
-            <button id="addFav">Add to favourites</button>
-            <button id="addCart">Add to cart</button>
+            <button id="addFav" className="btn btn-success btn send">Add to favurites</button>
+            <button id="addCart" className="btn btn-primary btn send">Add to cart</button>
           </div>
         </div>
 
