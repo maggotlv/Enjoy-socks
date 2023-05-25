@@ -1,4 +1,4 @@
-const React = require("react");
+const React = require('react');
 
 module.exports = function NavBar({ user }) {
   return (
@@ -9,6 +9,12 @@ module.exports = function NavBar({ user }) {
           <span>hello</span>
           <a href="/">
             home
+          </a>
+          <a href="/favorites">
+            favorites
+          </a>
+          <a href="/cart">
+            cart
           </a>
           <a href="/login/logout">
             logout
@@ -27,4 +33,3 @@ module.exports = function NavBar({ user }) {
     </nav>
   );
 };
-

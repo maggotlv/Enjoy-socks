@@ -4,46 +4,52 @@ const FavoritesView = require('../views/Favorites');
 const One = require('../views/One');
 const Error = require('../views/Error');
 
-const { User, Socks, Favorites, Carts } = require('../../db/models');
+const { Users, Socks, Favorites, Carts } = require('../../db/models');
 
 router.get('/', async (req, res) => {
   try {
     const favoritesData = await Favorites.findAll({
       where: { user: req.session.user.id },
-      includes: ['Users', 'Socks'],
+      include: Socks,
     });
-    const favorites = favoritesData.map((sock) => sock.get({ plain: true }));
+    const favorites = await favoritesData.map((el) =>
+      el.Sock.get({ plain: true })
+    );
     res.render(FavoritesView, { title: 'Избранные носки', favorites });
   } catch (error) {
     res.render(Error, { msg: error.message });
   }
 });
 
-router.get('/cart', async (req, res) => {
+router.get('/cart/:id', async (req, res) => {
   try {
-    const favToCart = await Crts.findOne({ where: { sock: req.params.id } });
+    const favToCart = await Carts.findOne({
+      where: { user: req.session.user.id, sock: req.params.id },
+    });
+    console.log('to cart - ', favToCart);
     if (!favToCart) {
       const newCartSockData = await Carts.create({
         user: req.session.user.id,
         sock: req.params.id,
       });
+      console.log('new cart record - ', newCartSockData);
     } else {
       favToCart.count += 1;
       await favToCart.save();
     }
-    res.redirect('/cart');
+    res.send({ status: 'ok' });
   } catch (error) {
     res.render(Error, { msg: error.message });
   }
 });
 
-router.get('/:id', async (req, res) => {
+router.get('/one/:id', async (req, res) => {
   try {
-    const oneSockData = await Favorites.findOne({
+    const oneSockData = await Socks.findOne({
       where: { id: req.params.id },
     });
-    const oneSock = await oneSockData.get({ plain: true });
-    res.render(One, { title: 'Твой носок', oneSock });
+    const sock = await oneSockData.get({ plain: true });
+    res.render(One, { title: 'Твой носок', sock });
   } catch (error) {
     res.render(Error, { msg: error.message });
   }
