@@ -5,10 +5,10 @@ module.exports = function NavBar(props) {
     <header>
       <nav className="navbar navbar-expand-sm bg-body-tertiary mb-3">
         <div className="container-fluid">
-          <img src="/img/logo.png" alt="" width="50" height="50" />
+        <a className="nav-link" href="/"><img src="/img/logo.png" alt="" width="50" height="50" /></a>
 
           <div className="collapse navbar-collapse d-flex justify-content-between" id="navbarNavAltMarkup">
-            <span className="navbar-brand h1 m-3">ENJOY SOCKS</span>
+            <span className="navbar-brand h1 m-3 titleSock">ENJOY SOCKS</span>
             <div className="navbar-nav">
               <a className="nav-link" href="/">Главная</a>
 
@@ -38,6 +38,7 @@ module.exports = function NavBar(props) {
               ) : (
                 <>
                   <a className="nav-link" href="/login/registration">
+                    Регистрация
                     Регистрация
                   </a>
                   <a className="nav-link" href="/login">

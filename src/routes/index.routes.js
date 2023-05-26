@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
   const title = 'Магазин носков "Enjoy socks"';
   try {
     const socksData = await Socks.findAll({
-      limit: 4,
+      limit: 6,
       order: [['createdAt', 'DESC']],
       raw: true,
     });

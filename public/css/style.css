@@ -1,13 +1,26 @@
 .container {
-  padding-right: 15px;
-  padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  background: #ffffffbd;
+  width:80%;
+  min-height: 100vh;
+  height: 100vh;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+body {
+  background-image: url("../img/bck.jpg");
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: right top;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 @media (min-width: 768px) {
   .container {
-    max-width: 750px;
+    max-width: 950px;
   }
 }
 
@@ -28,6 +41,11 @@ h5 {
   text-align: center;
 }
 
+.titleSock {
+	font-family: 'Cherry Bomb One', cursive;
+    color: #ffc107;
+}
+
 .delete {
   border: none;
   background-color: white;
@@ -40,6 +58,7 @@ h5 {
 
 .generator {
   display: flex;
+  position: relative;
 }
 
 .sockPattern,
@@ -88,6 +107,7 @@ h5 {
 }
 
 .favorites-group {
+  justify-content: center;
 }
 .sock-card-f {
   max-width: 354px;
@@ -145,7 +165,6 @@ h5 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  box-shadow: 0px 0px 14px #b3b2b1;
   width: 500px;
 }
 
@@ -161,9 +180,12 @@ h5 {
   height: 100px;
 }
 
+
+
 .footer {
-  display: flex;
+  flex-direction: column;
   bottom: 0;
+  margin-top: 40px;
   text-align: center;
   --bs-bg-opacity: 1;
   background-color: rgba(
@@ -183,4 +205,66 @@ h5 {
 .orderDone {
   text-align: right;
   color: rgb(195, 5, 5);
+}
+
+.nav-link {
+    display: block;
+    padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
+    font-size: var(--bs-nav-link-font-size);
+    font-weight: var(--bs-nav-link-font-weight);
+    color: rgb(250 69 92);
+    text-decoration: none;
+    background: 0 0;
+    border: 0;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+}
+
+::-webkit-scrollbar-track
+{
+	border: 5px solid #faecf0;
+	// border color does not support transparent on scrollbar
+	// border-color: transparent;
+	background-color: #b2bec3;
+}
+
+::-webkit-scrollbar
+{
+	width: 4px;
+	background-color: #dfe6e9;
+}
+
+::-webkit-scrollbar-thumb
+{
+	background-color: #ffc107;
+	border-radius: 10px;
+}
+
+
+navbar, a {
+  box-shadow: inset 0 0 0 0 #ffc107;
+  color: #ffc107;
+
+  transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+}
+navbar, a:hover {
+  color: #fff;
+  box-shadow: inset 200px 0 0 0 #ffc107;;
+  border-radius: 10px;
+}
+
+.regDiv, .logDiv {
+	display: flex;
+	flex-direction:column;
+	justify-content: center;
+	align-items: center;
+}
+
+input{
+	margin-bottom: 20px;
+}
+
+
+.imgLogo {
+	scale: 0.4;
+	transform: translateY(-185px)
 }
