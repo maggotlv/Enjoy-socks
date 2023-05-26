@@ -8,9 +8,9 @@ function Home({ title, user, socksData }) {
         <h3>{title}</h3>
         <h5>Самое время быть уникальным! Смоделируй свою любимую пару носков!</h5>
         <br />
-        <div className="home-group row">
+        <div className="favorites-group d-flex flex-wrap">
           {socksData.map((sock) => (
-            <div className="col-sm" key={sock.id} id={sock.id}>
+            <div className="generator" key={sock.id} id={sock.id}>
               <div className="shadow d-flex flex-column" key={sock.id} id={sock.id}>
                 <div className="generator sock-card-h">
                   <div className="sockBckg" style={{ backgroundColor: `${sock.colour}` }} />

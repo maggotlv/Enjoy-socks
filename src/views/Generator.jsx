@@ -4,11 +4,11 @@ const Layout = require('./Layout');
 module.exports = function Generator({ user }) {
   return (
     <Layout user={user}>
-      <h3>Генератор</h3>
+      <h3>Генератор дизайна</h3>
       <br />
-      <div className="generator-container">
-        <div className="sockDiv">
-          <div className="generator">
+      <div className="shadow generator-container">
+        <div className="shadow sockDiv">
+          <div className="shadow generator">
             <div className="sockBckg" style={{ background: 'rgb(255, 255, 255)' }} />
             <img className="sockPattern" src="/img/patterns/gorokhoviy.png" />
             <img className="sockLogo" src="/img/images/cactus.png" />
@@ -23,7 +23,7 @@ module.exports = function Generator({ user }) {
         <div className="options">
           <h3>Узор:</h3>
           <div id="carouselExample" className="carousel slide">
-            <div className="carousel-inner">
+            <div className="shadow carousel-inner">
               <div className="carousel-item active">
                 <img src="/img/patterns/gorokhoviy.png" className="d-block w-100" alt="..." />
               </div>
@@ -49,7 +49,7 @@ module.exports = function Generator({ user }) {
 
           <h3>Цвет:</h3>
           <div id="carouselExample-two" className="carousel slide">
-            <div className="carousel-inner">
+            <div className="shadow carousel-inner">
               <div className="carousel-item color active">
                 <div data-color="rgb(255, 255, 255)" className="color-div" style={{ background: 'rgb(255, 255, 255)' }}>Белый</div>
               </div>
@@ -81,7 +81,7 @@ module.exports = function Generator({ user }) {
 
           <h3>Лого:</h3>
           <div id="carouselExample-three" className="carousel slide">
-            <div className="carousel-inner">
+            <div className="shadow carousel-inner">
               <div className="carousel-item logo active">
                 <img src="/img/images/cactus.png" className="d-block w-100 imgLogo" alt="..." />
               </div>
