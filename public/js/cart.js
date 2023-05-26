@@ -83,9 +83,9 @@ cart.addEventListener('click', async (e) => {
 
   if (e.target.className === 'btn btn-warning btn send') {
     const sum = totalPrice.innerText;
-    const orderNum = `${
+    const orderNum = `${Math.round(Math.random() * 1000)}-${
       new Date().toLocaleString('RU', 'ru').split(',')[0]
-    }-${Math.round(Math.random() * 1000)}`;
+    }`;
 
     fetch('/cart/mail', {
       method: 'PUT',
