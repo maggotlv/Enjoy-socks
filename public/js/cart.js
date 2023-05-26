@@ -10,10 +10,6 @@ const deleteFunc = (id) => {
   })
     .then((result) => {
       result.json();
-      console.log(result);
-      if (result.status === 302) {
-        console.log('redirect');
-      }
     })
     .catch((err) => console.log(err));
 };
@@ -77,9 +73,10 @@ cart.addEventListener('click', async (e) => {
     const allPrices = document.querySelectorAll('.price');
     const pricesArr = [];
     allPrices.forEach((el) => pricesArr.push(+el.innerText));
-    if (pricesArr.length > 0) {
+    if (allPrices.length > 0) {
       totalPrice.innerText = pricesArr.reduce((acc, cur) => acc + cur);
     } else {
+      document.querySelector('#reddot').remove();
       location.replace('/cart');
     }
   }

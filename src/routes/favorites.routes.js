@@ -35,7 +35,9 @@ router.get('/cart/:id', async (req, res) => {
       await favToCart.save();
     }
     req.session.user.cart = true;
-    res.send({ status: 'ok' });
+    req.session.save(() => {
+      res.send({ status: 'ok' });
+    });
   } catch (error) {
     res.render(Error, { msg: error.message });
   }

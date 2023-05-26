@@ -6,7 +6,7 @@ const price = 200;
 function Cart(props) {
   // console.log('Пропсики', props.cartData);
   return (
-    <Layout {...props}>
+    <Layout user={props.user}>
       <div className="shopping-cart">
         <h3> Корзина </h3>
         <br />

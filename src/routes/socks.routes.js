@@ -65,7 +65,9 @@ router.post('/addCart', async (req, res) => {
       count: 1,
     });
     req.session.user.cart = true;
-    res.json(createSock);
+    req.session.save(() => {
+      res.json(createSock);
+    });
   } catch (error) {
     console.log(error);
   }
