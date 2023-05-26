@@ -55,10 +55,9 @@ router.get('/cart/:id', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
   try {
-    const favToDelete = await Favorites.findOne({
-      where: { id: req.params.id },
-    });
-    await favToDelete.destroy();
+    const { id } = req.params;
+    const favToDelete = await Favorites.findOne({ where: { sock: id } });
+    const result = await favToDelete.destroy();
     res.send({ status: 'ok' });
   } catch (error) {
     res.render(Error, { msg: error.message });

@@ -46,7 +46,20 @@ router.delete('/api/:id', async (req, res) => {
   try {
     const { id } = req.params;
     await Carts.destroy({ where: { id } });
-    return res.json({ status: 200, text: 'Запись удалена' });
+    const cartsData = await Carts.findAll({
+      where: { user: req.session.user.id },
+      raw: true,
+    });
+    req.session.user.cart = !!cartsData;
+    // console.log('cartsData.length', cartsData.length);
+    console.log('req.session.user.cart', req.session.user.cart);
+    if (!req.session.user.cart) {
+      res.json({ status: 302, text: 'Переход' });
+      res.end();
+    } else {
+      res.json({ status: 200, text: 'Запись удалена' });
+      res.end();
+    }
   } catch (error) {
     return res.json(error);
   }

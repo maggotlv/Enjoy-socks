@@ -18,7 +18,7 @@ module.exports = function Registration() {
           </div>
           <div className="mb-3">
             <label htmlFor="exampleInputPassword1" className="form-label">Пароль</label>
-            <input name="password" type="tpassword" className="form-control" />
+            <input name="password" type="password" className="form-control" />
           </div>
           <button type="submit" className="btn btn-warning">Отправить</button>
 

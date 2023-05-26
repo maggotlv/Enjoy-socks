@@ -17,7 +17,7 @@ function Home({ title, user, socksData }) {
             <a href="/login"><button className="btn btn-lg btn-success mb-3 px-5">Сгенерировать носок</button></a>
           </div>
         )}
-        <div className="home-group row">
+        <div className="favorites-group d-flex flex-wrap">
           {socksData.map((sock) => (
             <div className="generator" key={sock.id} id={sock.id}>
               <div className="shadow d-flex flex-column" key={sock.id} id={sock.id}>
@@ -25,7 +25,7 @@ function Home({ title, user, socksData }) {
                   <div className="sockBckg" style={{ backgroundColor: `${sock.colour}` }} />
                   <img className="sockPattern" src={`/img/patterns/${sock.pattern}`} alt="" />
                   <img className="sockLogo" src={`/img/images/${sock.image}`} alt="" />
-                  <img className="sock" style={{ scale: '1.01' }} src="/img/sock.png" alt="Готовый носок" />
+                  <img className="sock" src="/img/sock.png" alt="Готовый носок" />
                 </div>
               </div>
             </div>

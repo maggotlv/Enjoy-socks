@@ -28,26 +28,20 @@ function Cart(props) {
                 {props.cartData.map((el) => (
                   <tr key={el.id}>
                     <th scope="row">
-                      <button className="delete" type="button" name="button">
-                        <img id="deleteBtn" className="close-button" style={{ stroke: 'red' }} src="/img/closesm.svg" alt="" data-id={el.id} width="30" height="30" />
-                      </button>
+                      <img id="deleteBtn" className="close-button" style={{ stroke: 'red' }} src="/img/closesm.svg" alt="" data-id={el.id} width="30" height="30" />
                     </th>
                     <td>{el['Sock.sockname']}</td>
                     <td><p className="price" id={`price${el.id}`}>{price * el.count}</p></td>
-                    <td>
-                      <button className="delete minus-btn" type="button" name="button">
-                        <img className="delete-btn minus" src="/img/minus.svg" alt="" data-id={el.id} />
-                      </button>
+                    <td style={{ verticalAlign: 'middle' }}>
+                      <img className="delete-btn minus" style={{ float: 'right' }} src="/img/minus.svg" alt="" data-id={el.id} />
                     </td>
                     <td>
                       <p className="countText" id={`count${el.id}`}>
                         {el.count}
                       </p>
                     </td>
-                    <td>
-                      <button className="delete plus-btn" type="button" name="button">
-                        <img className="delete-btn plus" src="/img/plus.svg" alt="" data-id={el.id} />
-                      </button>
+                    <td style={{ verticalAlign: 'middle' }}>
+                      <img className="delete-btn plus" src="/img/plus.svg" alt="" data-id={el.id} />
                     </td>
                   </tr>
                 ))}

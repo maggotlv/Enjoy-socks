@@ -4,12 +4,10 @@ favoritesGroup.addEventListener('click', async (e) => {
   if (e.target.classList.contains('close-button')) {
     e.preventDefault();
     const sock = e.target.parentNode.parentNode;
-    console.log(sock);
     try {
       const result = await fetch(`/favorites/${sock.id}`, {
         method: 'DELETE',
       });
-      console.log(result);
       if (result.ok === true) {
         const card = sock.closest('.sock-card-f');
         card.remove();
@@ -30,9 +28,9 @@ favoritesGroup.addEventListener('click', async (e) => {
       console.log(error);
     }
   }
-  if (e.target.classList.contains('one')) {
-    e.preventDefault();
-    const sock = e.target.parentNode.parentNode.parentNode;
-    location.replace(`/favorites/one/${sock.id}`);
-  }
+  // if (e.target.classList.contains('one')) {
+  //   e.preventDefault();
+  //   const sock = e.target.parentNode.parentNode.parentNode;
+  //   location.replace(`/favorites/one/${sock.id}`);
+  // }
 });

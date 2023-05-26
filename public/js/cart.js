@@ -3,11 +3,18 @@ const totalPrice = document.querySelector('#totalPrice');
 const table = document.querySelector('.table');
 
 const deleteFunc = (id) => {
-  fetch(`/cart/api/${id}`, {
+  const response = fetch(`/cart/api/${id}`, {
     method: 'DELETE',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ id }),
-  }).then((result) => result.json())
+  })
+    .then((result) => {
+      result.json();
+      console.log(result);
+      if (result.status === 302) {
+        console.log('redirect');
+      }
+    })
     .catch((err) => console.log(err));
 };
 
@@ -67,11 +74,21 @@ cart.addEventListener('click', async (e) => {
     deleteFunc(id);
     const parent = e.target.closest('tr');
     parent.remove();
+    const allPrices = document.querySelectorAll('.price');
+    const pricesArr = [];
+    allPrices.forEach((el) => pricesArr.push(+el.innerText));
+    if (pricesArr.length > 0) {
+      totalPrice.innerText = pricesArr.reduce((acc, cur) => acc + cur);
+    } else {
+      location.replace('/cart');
+    }
   }
 
-  if (e.target.className === 'btn btn-primary btn send') {
+  if (e.target.className === 'btn btn-warning btn send') {
     const sum = totalPrice.innerText;
-    const orderNum = `${(new Date()).toLocaleString('RU', 'ru').split(',')[0]}-${Math.round(Math.random() * 1000)}`;
+    const orderNum = `${
+      new Date().toLocaleString('RU', 'ru').split(',')[0]
+    }-${Math.round(Math.random() * 1000)}`;
 
     fetch('/cart/mail', {
       method: 'PUT',
