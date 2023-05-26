@@ -4,7 +4,7 @@ const Layout = require('./Layout');
 module.exports = function Generator({ user }) {
   return (
     <Layout user={user}>
-      <h3>Генератор дизайна</h3>
+      <h3>Генератор</h3>
       <br />
       <div className="shadow generator-container">
         <div className="shadow sockDiv">
@@ -86,13 +86,13 @@ module.exports = function Generator({ user }) {
                 <img src="/img/images/cactus.png" className="d-block w-100 imgLogo" alt="..." />
               </div>
               <div className="carousel-item logo">
-                <img src="/img/images/duck.png" className="d-block w-100" alt="..." />
+                <img src="/img/images/duck.png" className="d-block w-100 imgLogo" alt="..." />
               </div>
               <div className="carousel-item logo">
-                <img src="/img/images/llama.png" className="d-block w-100" alt="..." />
+                <img src="/img/images/llama.png" className="d-block w-100 imgLogo" alt="..." />
               </div>
               <div className="carousel-item logo">
-                <img src="/img/images/yoda.png" className="d-block w-100" alt="..." />
+                <img src="/img/images/yoda.png" className="d-block w-100 imgLogo" alt="..." />
               </div>
             </div>
             <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample-three" data-bs-slide="prev">

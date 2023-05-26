@@ -263,3 +263,8 @@ input{
 	margin-bottom: 20px;
 }
 
+
+.imgLogo {
+	scale: 0.4;
+	transform: translateY(-185px)
+}
