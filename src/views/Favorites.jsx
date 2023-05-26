@@ -24,11 +24,11 @@ module.exports = function Favorites({ title, user, favorites }) {
                   <button className="btn btn-success tocart" type="button">В корзину</button>
                   <br />
                   <div className="sharebuttons">
-                    <a className="sharebutton whatsapp" rel="nofollow noreferrer" href={`https://api.whatsapp.com/send?text=%D0%9C%D0%BE%D0%B9%20%D0%BD%D0%BE%D1%81%D0%BE%D0%BA%20%D0%BD%D0%B0%20%D1%81%D0%B0%D0%B9%D1%82%D0%B5%20Enjoy%20socks%20http%3A%2F%2Flocalhost%3A3000%2Ffavorites%2Fone%2F${sock.id}%20`} target="_blank" />
-                    <a className="sharebutton viber" rel="nofollow noreferrer" href={`viber://forward?text=Мой%20носок%20на%20сайте%20Enjoy%20socks%20http%3a%2f%2flocalhost:3000%2ffavorites%2fone%2f${sock.id}`} target="_blank" />
-                    <a className="sharebutton telegram" rel="nofollow noreferrer" href={`https://t.me/share/url?text=Мой%20носок%20на%20сайте%20Enjoy%20socks&url=http%3a%2f%2flocalhost:3000%2ffavorites%2fone%2f${sock.id}`} target="_blank" />
-                    <a className="sharebutton facebook" rel="nofollow noreferrer" href={`https://www.facebook.com/sharer.php?src=sp&amp;title=Мой%20носок%20на%20сайте%20Enjoy%20socks%20&amp;url=http%3a%2f%2flocalhost:3000%2ffavorites%2fone%2f${sock.id}`} target="_blank" />
-                    <a className="sharebutton vk" rel="nofollow noreferrer" href={`https://vk.com/share.php?title=Мой%20носок%20на%20сайте%20Enjoy%20socks%20&amp;url=http%3a%2f%2flocalhost:3000%2ffavorites%2fone%2f${sock.id}`} target="_blank" />
+                    <a className="sharebutton whatsapp" rel="nofollow noreferrer" href={`https://api.whatsapp.com/send?text=%D0%9C%D0%BE%D0%B9%20%D0%BD%D0%BE%D1%81%D0%BE%D0%BA%20%D0%BD%D0%B0%20%D1%81%D0%B0%D0%B9%D1%82%D0%B5%20Enjoy%20socks%20http%3A%2F%2Flocalhost%3A3000%2Fone%2F${sock.id}%20`} target="_blank" />
+                    {/* <a className="sharebutton viber" rel="nofollow noreferrer" href={`viber://forward?text=Мой%20носок%20на%20сайте%20Enjoy%20socks%20http%3a%2f%2flocalhost:3000%2fone%2f${sock.id}`} target="_blank" /> */}
+                    <a className="sharebutton telegram" rel="nofollow noreferrer" href={`https://t.me/share/url?text=Мой%20носок%20на%20сайте%20Enjoy%20socks&url=http%3a%2f%2flocalhost:3000%2fone%2f${sock.id}`} target="_blank" />
+                    <a className="sharebutton facebook" rel="nofollow noreferrer" href={`https://www.facebook.com/sharer.php?src=sp&amp;title=Мой%20носок%20на%20сайте%20Enjoy%20socks%20&amp;url=http%3a%2f%2flocalhost:3000%2fone%2f${sock.id}`} target="_blank" />
+                    <a className="sharebutton vk" rel="nofollow noreferrer" href={`https://vk.com/share.php?title=Мой%20носок%20на%20сайте%20Enjoy%20socks%20&amp;url=http%3a%2f%2flocalhost:3000%2fone%2f${sock.id}`} target="_blank" />
                   </div>
                 </div>
               </div>

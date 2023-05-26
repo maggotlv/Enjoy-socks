@@ -29,9 +29,11 @@ module.exports = function NavBar(props) {
                   <a href="/cart">
                     <button style={{ display: 'flex' }} type="button" className="btn btn-warning position-relative">
                       <img className="close-button" style={{ stroke: 'white' }} src="/img/cart.svg" alt="" width="25" height="25" />
-                      <span className="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
-                        <span className="visually-hidden">New order</span>
-                      </span>
+                      {props.user?.cart ? (
+                        <span className="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
+                          <span className="visually-hidden">New order</span>
+                        </span>
+                      ) : (<></>)}
                     </button>
                   </a>
                 </>

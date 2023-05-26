@@ -1,8 +1,6 @@
 const router = require('express').Router();
 const { request } = require('express');
-const {
-  Users, Socks, Carts, Favorites,
-} = require('../../db/models');
+const { Users, Socks, Carts, Favorites } = require('../../db/models');
 
 const Generator = require('../views/Generator');
 
@@ -35,7 +33,9 @@ router.post('/addFav', async (req, res) => {
       pattern: sockData.pattern,
       image: sockData.image,
       author: req.session.user.id,
-      sockname: `${trans[sockData.colour]} ${trans[sockData.pattern]} носочек ${trans[sockData.image]}`,
+      sockname: `${trans[sockData.colour]} ${trans[sockData.pattern]} носочек ${
+        trans[sockData.image]
+      }`,
     });
     const favouriteSock = await Favorites.create({
       user: createSock.author,
@@ -55,13 +55,16 @@ router.post('/addCart', async (req, res) => {
       pattern: sockData.pattern,
       image: sockData.image,
       author: req.session.user.id,
-      sockname: `${trans[sockData.colour]} ${trans[sockData.pattern]} носочек ${trans[sockData.image]}`,
+      sockname: `${trans[sockData.colour]} ${trans[sockData.pattern]} носочек ${
+        trans[sockData.image]
+      }`,
     });
     const cartSock = await Carts.create({
       user: createSock.author,
       sock: createSock.id,
       count: 1,
     });
+    req.session.user.cart = true;
     res.json(createSock);
   } catch (error) {
     console.log(error);
