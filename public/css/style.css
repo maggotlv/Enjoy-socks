@@ -122,6 +122,9 @@ h5 {
 }
 
 .sock-card-o {
+  position: relative;
+  top: 70px;
+  left: 350px;
   scale: 150%;
 }
 
