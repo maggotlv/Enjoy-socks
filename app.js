@@ -13,7 +13,10 @@ const isAuth = require('./src/middlewares/isAuth');
 const app = express();
 
 const indexRoutes = require('./src/routes/index.routes');
-const authRoutes = require('./src/routes/auth.routes');
+const usersRoutes = require('./src/routes/users.routes');
+const cartRoutes = require('./src/routes/cart.routes');
+const favoritesRouter = require('./src/routes/favorites.routes');
+const socksRoutes = require('./src/routes/socks.routes')
 
 const { COOKIE_SECRET } = process.env;
 const { PORT } = process.env || 3000;
@@ -30,7 +33,7 @@ app.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
-      secure: false, // false - только для http, true - только для https
+      secure: false,
       maxAge: 1000 * 60 * 60 * 24 * 2,
       httpOnly: true,
     },
@@ -38,9 +41,13 @@ app.use(
 );
 
 app.use('/', indexRoutes);
-app.use('/login', authRoutes);
+app.use('/login', usersRoutes);
 app.use(isAuth);
+app.use('/cart', cartRoutes);
 
+app.use('/favorites', isAuth, favoritesRouter);
+// app.use(isAuth);
+app.use('/socks/', isAuth, socksRoutes)
 
 app.listen(PORT, (err) => {
   if (err) return console.log('Ошибка запуска сервера.', err.message);

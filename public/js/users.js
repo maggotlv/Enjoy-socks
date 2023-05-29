@@ -33,7 +33,8 @@ regForm?.addEventListener('submit', async (e) => {
   if (isValidEmail(e.target.email.value)) {
     const response = await submitForm('/login/registration', e.target);
     if (response.status === 200) {
-      window.location.href = '/login';
+      window.location.href = '/';
+
     } else if (response.status === 401) {
       errorMessage(
         'Адрес электронной почты уже занят',
